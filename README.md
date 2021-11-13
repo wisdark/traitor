@@ -4,9 +4,9 @@ Automatically exploit low-hanging fruit to pop a root shell. Linux privilege esc
 
 Traitor packages up a bunch of methods to exploit local misconfigurations and vulnerabilities (including most of [GTFOBins](https://gtfobins.github.io/)) in order to pop a root shell.
 
-![Demo](demo.gif)
+![Demo](polkit.png)
 
-It'll exploit most sudo privileges listed in GTFOBins to pop a root shell, as well as exploiting issues like a writable `docker.sock`. More routes to root will be added over time too.
+It'll exploit most sudo privileges listed in GTFOBins to pop a root shell, as well as exploiting issues like a writable `docker.sock`, or the recent polkit CVE-2021-3560. More routes to root will be added over time too.
 
 ## Usage
 
@@ -41,3 +41,8 @@ CGO_ENABLED=0 go get -u github.com/liamg/traitor/cmd/traitor
 ```
 
 If the machine you're attempting privesc on cannot reach GitHub to download the binary, and you have no way to upload the binary to the machine over SCP/FTP etc., then you can try base64 encoding the binary on your machine, and echoing the base64 encoded string to `| base64 -d > /tmp/traitor` on the target machine, remembering to `chmod +x` it once it arrives.
+
+## In The News
+- 20/06/21: [Console 58](https://console.substack.com/p/console-58) - Awesome newsletter featuring tools and beta releases for developers.
+- 28/04/21: [Intigriti Bug Bytes #120](https://blog.intigriti.com/2021/04/28/bug-bytes-120-macos-pwned-homebrew-rce-the-worlds-shortest-backdoor/) - Recommended tools
+- 09/03/21: [Hacker News thread](https://news.ycombinator.com/item?id=26224719)
